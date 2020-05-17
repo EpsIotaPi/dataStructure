@@ -6,10 +6,18 @@
 //  Copyright © 2020 金宸极. All rights reserved.
 //
 
-#include <iostream>
+#include "List.h"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+
+int main() {
+    DoubleLinkList DL;
+    Inital_DoubleLinkList(&DL);
+    
+    
+    
+    Insert_DoubleLinkList(&DL, 0, 'd');
+    
+    
     return 0;
 }
