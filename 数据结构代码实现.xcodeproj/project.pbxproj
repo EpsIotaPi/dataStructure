@@ -10,6 +10,10 @@
 		46CCB1A52470B2710025C804 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1A42470B2710025C804 /* main.cpp */; };
 		46CCB1AF2470B3460025C804 /* Order_List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1AE2470B3460025C804 /* Order_List.cpp */; };
 		46CCB1B12470B8330025C804 /* Linked_List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1B02470B8330025C804 /* Linked_List.cpp */; };
+		46CCB1B72470E8DA0025C804 /* Order_Stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1B52470E8DA0025C804 /* Order_Stack.cpp */; };
+		46CCB1B92470F91B0025C804 /* Linked_Stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1B82470F91B0025C804 /* Linked_Stack.cpp */; };
+		46CCB1BB247104A90025C804 /* Order_Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1BA247104A90025C804 /* Order_Queue.cpp */; };
+		46CCB1BD247105500025C804 /* Linked_Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1BC247105500025C804 /* Linked_Queue.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,10 +31,15 @@
 /* Begin PBXFileReference section */
 		46CCB1A12470B2710025C804 /* 数据结构代码实现 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "数据结构代码实现"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46CCB1A42470B2710025C804 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		46CCB1AB2470B2C90025C804 /* Basic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Basic.h; sourceTree = "<group>"; };
-		46CCB1AD2470B3460025C804 /* List.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		46CCB1AB2470B2C90025C804 /* Basic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Basic.hpp; sourceTree = "<group>"; };
+		46CCB1AD2470B3460025C804 /* List.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = List.hpp; sourceTree = "<group>"; };
 		46CCB1AE2470B3460025C804 /* Order_List.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Order_List.cpp; sourceTree = "<group>"; };
 		46CCB1B02470B8330025C804 /* Linked_List.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Linked_List.cpp; sourceTree = "<group>"; };
+		46CCB1B52470E8DA0025C804 /* Order_Stack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Order_Stack.cpp; sourceTree = "<group>"; };
+		46CCB1B62470E8DA0025C804 /* Stack&Queue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "Stack&Queue.hpp"; sourceTree = "<group>"; };
+		46CCB1B82470F91B0025C804 /* Linked_Stack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Linked_Stack.cpp; sourceTree = "<group>"; };
+		46CCB1BA247104A90025C804 /* Order_Queue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Order_Queue.cpp; sourceTree = "<group>"; };
+		46CCB1BC247105500025C804 /* Linked_Queue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Linked_Queue.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +72,9 @@
 		46CCB1A32470B2710025C804 /* 数据结构代码实现 */ = {
 			isa = PBXGroup;
 			children = (
-				46CCB1AB2470B2C90025C804 /* Basic.h */,
+				46CCB1AB2470B2C90025C804 /* Basic.hpp */,
 				46CCB1AC2470B2F30025C804 /* 第2章 线性表 */,
+				46CCB1B42470E8A60025C804 /* 第3章 栈和队列 */,
 				46CCB1A42470B2710025C804 /* main.cpp */,
 			);
 			path = "数据结构代码实现";
@@ -73,11 +83,23 @@
 		46CCB1AC2470B2F30025C804 /* 第2章 线性表 */ = {
 			isa = PBXGroup;
 			children = (
-				46CCB1AD2470B3460025C804 /* List.h */,
+				46CCB1AD2470B3460025C804 /* List.hpp */,
 				46CCB1AE2470B3460025C804 /* Order_List.cpp */,
 				46CCB1B02470B8330025C804 /* Linked_List.cpp */,
 			);
 			path = "第2章 线性表";
+			sourceTree = "<group>";
+		};
+		46CCB1B42470E8A60025C804 /* 第3章 栈和队列 */ = {
+			isa = PBXGroup;
+			children = (
+				46CCB1B62470E8DA0025C804 /* Stack&Queue.hpp */,
+				46CCB1B52470E8DA0025C804 /* Order_Stack.cpp */,
+				46CCB1B82470F91B0025C804 /* Linked_Stack.cpp */,
+				46CCB1BA247104A90025C804 /* Order_Queue.cpp */,
+				46CCB1BC247105500025C804 /* Linked_Queue.cpp */,
+			);
+			path = "第3章 栈和队列";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46CCB1BB247104A90025C804 /* Order_Queue.cpp in Sources */,
+				46CCB1B72470E8DA0025C804 /* Order_Stack.cpp in Sources */,
+				46CCB1BD247105500025C804 /* Linked_Queue.cpp in Sources */,
+				46CCB1B92470F91B0025C804 /* Linked_Stack.cpp in Sources */,
 				46CCB1A52470B2710025C804 /* main.cpp in Sources */,
 				46CCB1AF2470B3460025C804 /* Order_List.cpp in Sources */,
 				46CCB1B12470B8330025C804 /* Linked_List.cpp in Sources */,

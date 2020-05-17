@@ -6,8 +6,8 @@
 //  Copyright © 2020 金宸极. All rights reserved.
 //
 
-#ifndef Basic_h
-#define Basic_h
+#ifndef Basic_hpp
+#define Basic_hpp
 //头文件引用
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,4 +28,4 @@ typedef char ElemType;
 
 
 
-#endif /* Basic_h */
+#endif /* Basic_hpp */

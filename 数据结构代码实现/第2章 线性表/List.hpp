@@ -6,10 +6,10 @@
 //  Copyright © 2020 金宸极. All rights reserved.
 //
 
-#ifndef List_h
-#define List_h
+#ifndef List_hpp
+#define List_hpp
 
-#include "Basic.h"
+#include "Basic.hpp"
 
 //MARK:- 线性表的顺序存储
 
@@ -114,4 +114,4 @@ Status Delete_DoubleLinkList(DoubleLinkList *L, int i, ElemType *e);
 
 
 
-#endif /* List_h */
+#endif /* List_hpp */
