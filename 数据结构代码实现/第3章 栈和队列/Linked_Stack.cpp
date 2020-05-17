@@ -9,43 +9,34 @@
 #include "Stack&Queue.hpp"
 
 //MARK: 链栈
-
-Status Inital_LinkStack(LinkStack *S){
-    (*S) = (SNode *)malloc(sizeof(SNode));
-    (*S)->next = nullptr;
-    (*S)->data = '0';     //头结点
-    return OK;
+bool LinkStack::isEmpty(){
+    return (headNode->next == nullptr);
 }
 
-Status isEmpty_LinkStack(LinkStack S){
-    return (S->next == nullptr);
-}
-
-Status Push_LinkStack(LinkStack *S, ElemType e){
+Status LinkStack::Push(ElemType e){
     SNode *newNode = (SNode *)malloc(sizeof(SNode));
     newNode->data = e;
     
-    newNode->next = (*S)->next;
-    (*S)->next = newNode;
+    newNode->next = headNode->next;
+    headNode->next = newNode;
     return OK;
 }
 
-Status Pop_LinkStack(LinkStack *S, ElemType *e){
-    if (isEmpty_LinkStack(*S)) {
+Status LinkStack::Pop(ElemType *e){
+    if (isEmpty()) {
         return INFEASIBLE;
     }
-    SNode *p = (*S)->next;
+    SNode *p = headNode->next;
     (*e) = p->data;
         
-    (*S)->next = p->next;
+    headNode->next = p->next;
     free(p);
     return OK;
 }
 
-Status GetTop_LinkStack(LinkStack S, ElemType *e){
-    if (isEmpty_LinkStack(S)) {
-        return ERROR;
+Status LinkStack::GetTop(ElemType *e){
+    if (isEmpty()) {
+        return DEFAULT;
     }
-    (*e) = S->next->data;
-    return OK;
+    return headNode->next->data;
 }

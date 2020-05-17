@@ -8,46 +8,33 @@
 
 #include "Stack&Queue.hpp"
 
-//MARK: 单链队列
-
-Status Inital_LinkQueue(LinkQueue *Q){
-    QNode *Head = (QNode *)malloc(sizeof(QNode));
-    Head->next = nullptr;
-    Head->data = '\0';     //头结点
-    
-    (*Q).front = Head;
-    (*Q).rear = Head;
-    
-    return OK;
+Status LinkQueue::isEmpty(){
+    return (rear == front);
 }
 
-Status isEmpty_LinkQueue(LinkQueue Q){
-    return (Q.rear == Q.front);
-}
-
-Status EnQueue_LinkQueue(LinkQueue *Q, ElemType e){
+Status LinkQueue::EnQueue(ElemType e){
     QNode *newNode = (QNode *)malloc(sizeof(QNode));
     
     newNode->data = e;
-    newNode->next = Q->rear->next;
+    newNode->next = rear->next;
     
-    Q->rear->next = newNode;
-    Q->rear = newNode;
+    rear->next = newNode;
+    rear = newNode;
     
     return OK;
 }
 
-Status DeQueue_LinkQueue(LinkQueue *Q, ElemType *e){
-    if (isEmpty_LinkQueue(*Q)) {
+Status LinkQueue::DeQueue(ElemType *e){
+    if (isEmpty()) {
         return INFEASIBLE;
     }
-    QNode *p = Q->front->next;
+    QNode *p = front->next;
     (*e) = p->data;
     
-    Q->front->next = p->next;
+    front->next = p->next;
     
-    if (Q->rear == p) {
-        Q->rear = Q->front;
+    if (rear == p) {
+        rear = front;
     }   //最后一个元素出队，修改尾指针
     
     free(p);
@@ -55,20 +42,16 @@ Status DeQueue_LinkQueue(LinkQueue *Q, ElemType *e){
     return OK;
 }
 
-Status GetHead_LinkQueue(LinkQueue Q, ElemType *e){
-    if (isEmpty_LinkQueue(Q)) {
-        return ERROR;
+Status LinkQueue::GetHead(){
+    if (isEmpty()) {
+        return DEFAULT;
     }
-    (*e) = Q.front->next->data;
-    
-    return OK;
+    return front->next->data;
 }
 
-Status GetTail_LinkQueue(LinkQueue Q, ElemType *e){
-    if (isEmpty_LinkQueue(Q)) {
-        return ERROR;
+Status LinkQueue::GetTail(){
+    if (isEmpty()) {
+        return DEFAULT;
     }
-    (*e) = Q.rear->data;
-    
-    return OK;
+    return rear->data;
 }

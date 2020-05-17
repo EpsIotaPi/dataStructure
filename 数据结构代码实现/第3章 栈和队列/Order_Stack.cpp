@@ -10,109 +10,89 @@
 
 //MARK: 顺序栈
 
-Status Inital_SqStack(SqStack *S){
-    (*S).top = -1;
-    return OK;
+bool SqStack::isEmpty(){
+    return (top == -1);
 }
 
-bool isEmpty_SqStack(SqStack S){
-    return (S.top == -1);
+bool SqStack::isFull(){
+    return (top == MaxSize - 1);
 }
 
-bool isFull_SqStack(SqStack S){
-    return (S.top == MaxSize - 1);
-}
-
-Status Push_SqStack(SqStack *S, ElemType e){
-    if (isFull_SqStack(*S)) {
+Status SqStack::Push(ElemType e){
+    if (isFull()) {
         return OVERFLOW;
     }
-    (*S).top ++;
-    (*S).data[(*S).top] = e;
+    top ++;
+    data[top] = e;
     return OK;
 }
 
-Status Pop_SqStack(SqStack *S, ElemType *e){
-    if (isEmpty_SqStack(*S)) {
+Status SqStack::Pop(ElemType *e){
+    if (isEmpty()) {
         return INFEASIBLE;
     }
-    (*e) = (*S).data[(*S).top];
-    (*S).top --;
+    (*e) = data[top];
+    top --;
     return OK;
 }
 
-Status GetTop_SqStack(SqStack S, ElemType *e){
-    if (isEmpty_SqStack(S)) {
-        //TODO: 是否考虑修改返回值
-        return ERROR;
+ElemType SqStack::GetTop(){
+    if (isEmpty()) {
+        return DEFAULT;
     }
-    (*e) = S.data[S.top];
-    return OK;
+    return data[top];
 }
 
 
 //MARK: 共享栈
 
-Status Inital_ShareStack(ShareStack *S){
-    S->Top0 = -1;
-    S->Top1 = MaxSize;
-    
-    return OK;
-}
-
-bool isEmpty_ShareStack(ShareStack S, int Stack){
+bool ShareStack::isEmpty(int Stack){
     if (Stack == 0) {
-        return (S.Top0 == -1);      //0号栈的判空条件
+        return (Top0 == -1);      //0号栈的判空条件
     }
-    return (S.Top1 == MaxSize);     //1号栈的判空条件
+    return (Top1 == MaxSize);     //1号栈的判空条件
 }
 
-bool isFull_ShareStack(ShareStack S){
-    return (S.Top0 + 1 == S.Top1);
+bool ShareStack::isFull(){
+    return (Top0 + 1 == Top1);
 }
 
-Status Push_ShareStack(ShareStack *S, int Stack, ElemType e){
-    if (isFull_ShareStack(*S)) {
+Status ShareStack::Push( int Stack, ElemType e){
+    if (isFull()) {
         return OVERFLOW;
     }
     
     if (Stack == 0) {
-        S->Top0 ++;
-        S->data[S->Top0] = e;
+        Top0 ++;
+        data[Top0] = e;
     } else {
-        S->Top1 --;
-        S->data[S->Top1] = e;
+        Top1 --;
+        data[Top1] = e;
     }
     
     return OK;
 }
 
-Status Pop_ShareStack(ShareStack *S, int Stack, ElemType *e){
-    if (isEmpty_ShareStack(*S, Stack)) {
+Status ShareStack::Pop(int Stack, ElemType *e){
+    if (isEmpty(Stack)) {
         return INFEASIBLE;
     }
     
     if (Stack == 0) {
-        (*e) = S->data[S->Top0];
-        S->Top0 --;
+        (*e) = data[Top0];
+        Top0 --;
     } else {
-        (*e) = S->data[S->Top1];
-        S->Top1 ++;
+        (*e) = data[Top1];
+        Top1 ++;
     }
     
     return OK;
 }
 
-Status GetTop_ShareStack(ShareStack *S, int Stack, ElemType *e){
-    if (isEmpty_ShareStack(*S, Stack)) {
-        return INFEASIBLE;
+ElemType ShareStack::GetTop(int Stack){
+    if (isEmpty(Stack)) {
+        return DEFAULT;
     }
     
-    if (Stack == 0) {
-        (*e) = S->data[S->Top0];
-    } else {
-        (*e) = S->data[S->Top1];
-    }
-    
-    return OK;
+    return (Stack == 0) ? data[Top0] : data[Top1];
 }

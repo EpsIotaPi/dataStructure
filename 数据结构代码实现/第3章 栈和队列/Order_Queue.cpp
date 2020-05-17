@@ -10,41 +10,42 @@
 
 //MARK: 循环队列
 
-Status Inital_SqQueue(SqQueue *Q){
-    (*Q).front = (*Q).rear = 0;
-    return OK;
+bool SqQueue::isEmpty(){
+    return (rear == front);
 }
 
-bool isEmpty_SqQueue(SqQueue Q){
-    return (Q.rear == Q.front);
+bool SqQueue::isFull(){
+    return (front == (rear + 1) % MaxSize);
 }
 
-bool isFull_SqQueue(SqQueue Q){
-    return (Q.front == (Q.rear + 1) % MaxSize);
-}
-
-Status EnQueue_SqQueue(SqQueue *Q, ElemType e){
-    if (isFull_SqQueue(*Q)) {
+Status SqQueue::EnQueue(ElemType e){
+    if (isFull()) {
         return OVERFLOW;
     }
-    (*Q).data[(*Q).rear] = e;
-    (*Q).rear = ((*Q).rear + 1) % MaxSize;
+    data[rear] = e;
+    rear = (rear + 1) % MaxSize;
     return OK;
 }
 
-Status DeQueue_SqQueue(SqQueue *Q, ElemType *e){
-    if (isEmpty_SqQueue(*Q)) {
+Status SqQueue::DeQueue(ElemType *e){
+    if (isEmpty()) {
         return INFEASIBLE;
     }
-    (*e) = (*Q).data[(*Q).front];
-    (*Q).front = ((*Q).front + 1) % MaxSize;
+    (*e) = data[front];
+    front = (front + 1) % MaxSize;
     return OK;
 }
 
-Status GetHead_SqQueue(SqQueue Q, ElemType *e){
-    if (isEmpty_SqQueue(Q)) {
-        return ERROR;
+ElemType SqQueue::GetHead(){
+    if (isEmpty()) {
+        return DEFAULT;
     }
-    (*e) = (Q).data[(Q).front];
-    return OK;
+    return data[front];
+}
+
+ElemType SqQueue::GetTail(){
+    if (isEmpty()) {
+        return DEFAULT;
+    }
+    return data[(rear - 1 + MaxSize) % MaxSize];
 }
