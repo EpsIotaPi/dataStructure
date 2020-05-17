@@ -8,7 +8,7 @@
 
 #include "Stack&Queue.hpp"
 
-//MARK:- 顺序栈
+//MARK: 顺序栈
 
 Status Inital_SqStack(SqStack *S){
     (*S).top = -1;
@@ -51,7 +51,7 @@ Status GetTop_SqStack(SqStack S, ElemType *e){
 }
 
 
-//MARK:- 共享栈
+//MARK: 共享栈
 
 Status Inital_ShareStack(ShareStack *S){
     S->Top0 = -1;

@@ -12,7 +12,7 @@
 
 Status Inital_LinkQueue(LinkQueue *Q){
     QNode *Head = (QNode *)malloc(sizeof(QNode));
-    Head->next = NULL;
+    Head->next = nullptr;
     Head->data = '\0';     //头结点
     
     (*Q).front = Head;

@@ -6,9 +6,11 @@
 //  Copyright © 2020 金宸极. All rights reserved.
 //
 
-#include "Basic.hpp"
+#include "List.hpp"
 
 using namespace std;
+
+ElemType e;
 
 int main() {
     

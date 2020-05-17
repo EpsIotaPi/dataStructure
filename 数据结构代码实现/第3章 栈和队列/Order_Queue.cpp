@@ -10,7 +10,6 @@
 
 //MARK: 循环队列
 
-
 Status Inital_SqQueue(SqQueue *Q){
     (*Q).front = (*Q).rear = 0;
     return OK;

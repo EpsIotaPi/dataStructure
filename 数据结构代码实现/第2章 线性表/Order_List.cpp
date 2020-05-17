@@ -8,68 +8,54 @@
 
 #include "List.hpp"
 
-//MARK:- 顺序表
-Status Inital_SqList(SqList *L){
-    L->length = 0;
-    return OK;
+//MARK: 顺序表
+
+int SqList::ListLength(){
+    return length;
 }
 
-int ListLength_SqList(SqList L){
-    return L.length;
-}
-
-Status GetElem_SqList(SqList L, int i, ElemType *e){
-    if (!(i >= 1 && i <= L.length)) {
-        return INFEASIBLE;
+ElemType SqList::GetElem(int i){
+    if (!(i >= 1 && i <= length)) {
+        return DEFAULT;
     }
-    (*e) = L.data[i - 1];   //数组下标 = 线性表位序 - 1
-    return OK;
-}   //读取指定元素，O(1)
+    return data[i - 1];
+}
 
-
-Status Insert_SqList (SqList *L, int i, ElemType e){
-    if (i < 1 || i > (*L).length + 1) {
+Status SqList::Insert(int i, ElemType e){
+    if (i < 1 || i > length + 1) {
         return ERROR;
-    } else if (ListLength_SqList(*L) >= MaxSize) {
+    } else if (length >= MaxSize) {
         return OVERFLOW;
     }
-    
-    for (int index = (*L).length; index >= i; index--) {
-        (*L).data[index] = (*L).data[index - 1];
+
+    for (int index = length; index >= i; index--) {
+        data[index] = data[index - 1];
     }
-    
-    (*L).data[i-1] = e;
-    (*L).length ++;
-    
+
+    data[i-1] = e;
+    length ++;
     return OK;
 }
 
-
-Status Delete_SqList (SqList *L, int i, ElemType *e){
-    if (i < 1 || i > (*L).length) {
+Status SqList::Delete (int i, ElemType *e){
+    if (i < 1 || i > length) {
         return ERROR;
-    } else if (ListLength_SqList(*L) <= 0) {
+    } else if (length <= 0) {
         return INFEASIBLE;
     }
-    
-    (*e) = (*L).data[i-1];
-    
-    for (int index = i; index < (*L).length; index++) {
-        (*L).data[index-1] = (*L).data[index];
+
+    (*e) = data[i-1];
+
+    for (int index = i; index < length; index++) {
+        data[index-1] = data[index];
     }
-    
-    (*L).length --;
-    
+
+    length --;
+
     return OK;
-}  //删除操作，O(n)
+}
 
 
 //MARK: 动态分配的顺序表
-Status Inital_DqList (DqList *L){
-    (*L).data = (ElemType *)malloc(sizeof(ElemType) * MaxSize);
-    (*L).length = 0;
-    (*L).MaxLength = MaxSize;
-    return OK;
-}
 
 

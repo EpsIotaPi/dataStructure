@@ -8,17 +8,17 @@
 
 #include "Stack&Queue.hpp"
 
-//MARK:链栈
+//MARK: 链栈
 
 Status Inital_LinkStack(LinkStack *S){
     (*S) = (SNode *)malloc(sizeof(SNode));
-    (*S)->next = NULL;
+    (*S)->next = nullptr;
     (*S)->data = '0';     //头结点
     return OK;
 }
 
 Status isEmpty_LinkStack(LinkStack S){
-    return (S->next == NULL);
+    return (S->next == nullptr);
 }
 
 Status Push_LinkStack(LinkStack *S, ElemType e){

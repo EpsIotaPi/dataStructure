@@ -9,49 +9,27 @@
 #include "List.hpp"
 
 //MARK: 单链表
-Status Inital_LinkList (LinkList *L){
-    (*L) = (LNode *)malloc(sizeof(LNode));
-    if (!L) {
-        return ERROR;
-    }
-    
-    (*L)->next = nullptr;
-    (*L)->data = '0';     //头结点可以存储线性表长度
-    
-    return OK;
+int LinkList::ListLength(){
+    return length;
 }
 
-int ListLength_LinkList(LinkList L){
-    //可以直接读取头结点的数据，此处示例一般化情况
-    LNode *p = L;
-    int Length = 0;
-    
-    while (p->next != nullptr) {
-        Length ++;
-        p = p->next;
-    }
-    
-    return Length;
-}
-
-Status GetElem_LinkList(LinkList L, int i, ElemType *e){
+ElemType LinkList::GetElem(int i){
     if (i <= 0) {
-        return INFEASIBLE;
+        return DEFAULT;
     }
-    LNode *p = L;
-    
+    LNode *p = headNode;
+
     for (int index = 0; index < i; index ++) {
         if (p->next == nullptr) {
-            return OVERFLOW;
+            return DEFAULT;
         }
         p = p->next;
     }
-    
-    (*e) = p->data;
-    return OK;
+
+    return p->data;
 }
 
-Status Insert_LinkList(LinkList *L, int i, ElemType e){
+Status LinkList::Insert(int i, ElemType e){
     if (i <= 0) {
         return INFEASIBLE;
     }
@@ -60,8 +38,8 @@ Status Insert_LinkList(LinkList *L, int i, ElemType e){
         return ERROR;
     }
     newNode->data = e;
-    
-    LNode *p = *L;
+
+    LNode *p = headNode;
     for (int index = 1; index < i; index++) {
         if (p->next == nullptr) {
             return OVERFLOW;
@@ -71,104 +49,103 @@ Status Insert_LinkList(LinkList *L, int i, ElemType e){
     
     newNode->next = p->next;
     p->next = newNode;
-    (*L)->data++ ; //头结点用于存储线性表长度
+    length ++;
     
     return OK;
 }
 
-Status Delete_LinkList(LinkList *L, int i, ElemType *e){
+Status LinkList::Delete(int i, ElemType *e){
     if (i <= 0) {
         return INFEASIBLE;
     }
-    
-    LNode *p = *L;
+
+    LNode *p = headNode;
     for (int index = 1; index < i; index++) {
         if (p->next == nullptr) {
             return OVERFLOW;
         }
         p = p->next;
     }
-    
+
     LNode *temp = p->next;
     p->next = temp->next;
-    (*L)->data--;   //头结点用于存储线性表长度
-    
+    length--;
+
     (*e) = temp->data;
     free(temp);
-    
+
     return OK;
 }
 
 
 
 //MARK: 双向链表
-Status Inital_DoubleLinkList(DoubleLinkList *L){
-    DoubleLinkList head = (DoubleLinkList)malloc(sizeof(DNode));
-    DoubleLinkList rear  = (DoubleLinkList)malloc(sizeof(DNode));
-    if (!head || !rear) {
-        return ERROR;
-    }
-    head->next = rear;
-    rear->prior = head;
-    
-    head->prior = nullptr;
-    rear->next = nullptr;
-    
-    head->data = 0;
-    
-    *L = head;
-    return OK;
+int DoubleLinkList::ListLength(){
+    return length;
 }
 
-Status Insert_DoubleLinkList(DoubleLinkList *L, int i, ElemType e){
+ElemType DoubleLinkList::GetElem(int i){
+    if (i <= 0) {
+        return DEFAULT;
+    }
+    DNode *p = headNode;
+
+    for (int index = 0; index < i; index ++) {
+        if (p->next == rearNode) {
+            return DEFAULT;
+        }
+        p = p->next;
+    }
+
+    return p->data;
+}
+
+Status DoubleLinkList::Insert(int i, ElemType e){
     DNode *newNode;
     newNode = (DNode *)malloc(sizeof(DNode));
     if (!newNode) {
         return ERROR;
     }
-    
-    DNode *p = *L;
+
+    DNode *p = headNode;
     for (int index = 1; index < i; index++) {
-        if (p->next == nullptr) {
+        if (p->next == rearNode) {
             return OVERFLOW;
         }
         p = p->next;
     }
-    
+
     newNode->data = e;
     newNode->prior = p;
     newNode->next = p->next;
-    
+
     p->next->prior = newNode;
     p->next = newNode;
-    (*L)->data ++;
-
+    
+    length ++;
+    
     return  OK;
 }
 
-Status Delete_DoubleLinkList(DoubleLinkList *L, int i, ElemType *e){
+Status DoubleLinkList::Delete(int i, ElemType *e){
     if (i <= 0) {
         return INFEASIBLE;
     }
-    
-    DNode *p = *L;
+
+    DNode *p = headNode;
     for (int index = 1; index < i; index++) {
-        if (p->next == nullptr) {
+        if (p->next == rearNode) {
             return OVERFLOW;
         }
         p = p->next;
     }
-    
+
     p->prior->next = p->next;
     p->next->prior = p->prior;
-    
+
     (*e) = p->data;
     free(p);
-    (*L)->data --;
-    
+    length--;
+
     return OK;
 }
-
-
-
-

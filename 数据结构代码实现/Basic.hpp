@@ -21,8 +21,12 @@
 #define OVERFLOW -2   //溢出
 // Status 是函数的类型，其值是函数结果状态代码
 
+
 typedef int Status;
 typedef char ElemType;
+
+#define DEFAULT '\0'   //默认返回元素
+
 
 #define MaxSize 20  //最大存储容量
 

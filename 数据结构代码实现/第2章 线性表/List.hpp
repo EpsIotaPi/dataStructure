@@ -15,102 +15,141 @@
 
 
 
-//MARK: （结构）顺序表
-typedef struct {
+//MARK: 顺序表
+struct SqList{
+private:
     ElemType data[MaxSize];
     int length;
-}SqList;
 
-//MARK: （操作）顺序表
-/// 初始化顺序表
-/// @param L 顺序表
-Status Inital_SqList(SqList *L);
+public:
+    SqList(){
+        length = 0;
+    }
+    /// 返回顺序表长，时间复杂度 O(1)
+    int ListLength();
+    
+    /// 读取顺序表指定位置的元素，时间复杂度 O(1)
+    /// @param i 指定位置，1 <= i <= L.length
+    ElemType GetElem(int i);
+    
+    /// 在顺序表指定为位置插入元素，时间复杂度 O(n)
+    /// @param i 指定位置，1 <= i <= L.length
+    /// @param e 插入的元素
+    Status Insert(int i, ElemType e);
+    
+    /// 删除顺序表指定位置的元素，时间复杂度 O(n)
+    /// @param i 指定位置，1 <= i <= L.length
+    /// @param e 用于返回删除元素的变量
+    Status Delete (int i, ElemType *e);
+};
 
-/// 返回顺序表长，时间复杂度 O(1)
-/// @param L 顺序表
-int ListLength_SqList(SqList L);
-
-/// 读取顺序表指定位置的元素，时间复杂度 O(1)
-/// @param L 顺序表
-/// @param i 指定位置，1 <= i <= L.length
-/// @param e 返回元素存储变量
-Status GetElem_SqList(SqList L, int i, ElemType *e);
-
-/// 在顺序表指定为位置插入元素，时间复杂度 O(n)
-/// @param L 顺序表
-/// @param i 指定位置，1 <= i <= L.length
-/// @param e 需要插入的元素
-Status Insert_SqList (SqList *L, int i, ElemType e);
-
-/// 删除顺序表指定位置的元素，时间复杂度 O(n)
-/// @param L 顺序表
-/// @param i 指定位置，1 <= i <= L.length
-/// @param e 返回删除元素的存储变量
-Status Delete_SqList (SqList *L, int i, ElemType *e);
-
-//MARK: （结构）动态分配的顺序表
+//MARK: 动态分配的顺序表
 #define Increas 10
-typedef struct {
+struct DqList{
+private:
     ElemType *data;
     int length;
     int MaxLength;
-}DqList;
+public:
+    DqList(){
+        data = (ElemType *)malloc(sizeof(ElemType) * MaxSize);
+        length = 0;
+        MaxLength = MaxSize;
+    }
+};
 
-//MARK: （操作）动态分配的顺序表
-/// 初始化顺序表
-/// @param L 动态分配的顺序表
-Status Inital_DqList (DqList *L);
 
 
 //MARK:- 线性表的链式存储
 
 
 
-//MARK: （结构）单链表
-typedef struct LNode{
+//MARK: 单链表
+struct LNode{
     ElemType data;      //数据域
-    struct LNode *next; //指针域
-}LNode, *LinkList;
+    LNode *next; //指针域
+};
 
-//MARK: （操作）单链表
-/// 初始化单链表
-/// @param L 单链表
-Status Inital_LinkList (LinkList *L);
+struct LinkList{
+private:
+    int length;
+    LNode *headNode;
+public:
+    LinkList(){
+        headNode = (LNode *)malloc(sizeof(LNode));
+        if (!headNode) {
+            return;
+        }
+        
+        headNode->next = nullptr;
+        length = 0;
+    }
+    
+    /// 求单链表表长，时间复杂度 O(n)
+    int ListLength();
+    
+    /// 读取单链表指定位置元素，时间复杂度 O(n)
+    /// @param i 指定位置，1 <= i <= L.length
+    ElemType GetElem(int i);
+    
+    /// 在单链表指定位置插入元素，时间复杂度 O(1)
+    /// @param i 指定位置，1 <= i <= L.length
+    /// @param e 需要插入的元素
+    Status Insert(int i, ElemType e);
+    
+    /// 删除单链表指定位置的元素，时间复杂度 O(1)
+    /// @param i 指定位置，1 <= i <= L.length
+    /// @param e 返回删除元素的存储变量
+    Status Delete(int i, ElemType *e);
+};
 
-/// 求单链表表长，时间复杂度 O(n)
-/// @param L 单链表
-int ListLength_LinkList(LinkList L);      //求表长，O(n)
 
-/// 读取单链表指定位置元素，时间复杂度 O(n)
-/// @param L 单链表
-/// @param i 指定位置，1 <= i <= L.length
-/// @param e 返回元素存储变量
-Status GetElem_LinkList(LinkList L, int i, ElemType *e);   //读取指定元素，O(n)
 
-/// 在单链表指定位置插入元素，时间复杂度 O(1)
-/// @param L 单链表
-/// @param i 指定位置，1 <= i <= L.length
-/// @param e 需要插入的元素
-Status Insert_LinkList(LinkList *L, int i, ElemType e);    //插入操作，O(1)
+   //删除操作，O(1)
 
-/// 删除单链表指定位置的元素，时间复杂度 O(1)
-/// @param L 单链表
-/// @param i 指定位置，1 <= i <= L.length
-/// @param e 返回删除元素的存储变量
-Status Delete_LinkList(LinkList *L, int i, ElemType *e);   //删除操作，O(1)
-
-//MARK: （结构）双向链表
-typedef struct DNode{
+//MARK: 双向链表
+struct DNode{
     ElemType data;
-    struct DNode *prior, *next;
-}DNode, *DoubleLinkList;
+    DNode *prior, *next;
+};
 
-//MARK: （操作）双向链表
-Status Inital_DoubleLinkList(DoubleLinkList *L);
+struct DoubleLinkList{
+private:
+    int length;
+    DNode *headNode;
+    DNode *rearNode;
+public:
+    DoubleLinkList(){
+        headNode = (DNode *)malloc(sizeof(DNode));
+        rearNode  = (DNode *)malloc(sizeof(DNode));
 
-Status Insert_DoubleLinkList(DoubleLinkList *L, int i, ElemType e);
+        headNode->next = rearNode;
+        rearNode->prior = headNode;
 
-Status Delete_DoubleLinkList(DoubleLinkList *L, int i, ElemType *e);
+        headNode->prior = nullptr;
+        rearNode->next = nullptr;
+
+        length = 0;
+    }
+    
+    /// 求双向链表表长，时间复杂度 O(n)
+    int ListLength();
+    
+    /// 读取双向链表指定位置元素，时间复杂度 O(n)
+    /// @param i 指定位置，1 <= i <= L.length
+    ElemType GetElem(int i);
+    
+    /// 在双向链表指定位置插入元素，时间复杂度 O(1)
+    /// @param i 指定位置，1 <= i <= L.length
+    /// @param e 需要插入的元素
+    Status Insert(int i, ElemType e);
+    
+    /// 删除双向链表指定位置的元素，时间复杂度 O(1)
+    /// @param i 指定位置，1 <= i <= L.length
+    /// @param e 返回删除元素的存储变量
+    Status Delete(int i, ElemType *e);
+};
+
 
 
 
