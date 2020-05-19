@@ -1,5 +1,5 @@
 //
-//  main.cpp
+//  Tree.cpp
 //  数据结构代码实现
 //
 //  Created by 金宸极 on 2020/5/17.
@@ -7,12 +7,3 @@
 //
 
 #include "Tree&BiTree.hpp"
-
-using namespace std;
-
-ElemType e;
-
-int main() {
-    
-    return 0;
-}

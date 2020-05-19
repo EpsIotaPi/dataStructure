@@ -6,8 +6,8 @@
 //  Copyright © 2020 金宸极. All rights reserved.
 //
 
-#ifndef Stack_hpp
-#define Stack_hpp
+#ifndef Stack_Queue_hpp
+#define Stack_Queue_hpp
 
 #include "Basic.hpp"
 
@@ -60,7 +60,7 @@ public:
     /// 共享栈判满，满足条件时两栈均满
     bool isFull();
         
-    /// 入栈，插入元素
+    /// 入栈LinkStack
     /// @param Stack 操作的栈（置 0 为 Top0 对应的栈，置 1 为 Top1 对应的栈）
     /// @param e 入栈元素
     Status Push(int Stack, ElemType e);
@@ -190,4 +190,4 @@ public:
 
 
 
-#endif /* Stack_hpp */
+#endif /* Stack_Queue_hpp */

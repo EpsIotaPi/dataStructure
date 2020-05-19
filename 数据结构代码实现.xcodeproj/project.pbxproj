@@ -14,6 +14,12 @@
 		46CCB1B92470F91B0025C804 /* Linked_Stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1B82470F91B0025C804 /* Linked_Stack.cpp */; };
 		46CCB1BB247104A90025C804 /* Order_Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1BA247104A90025C804 /* Order_Queue.cpp */; };
 		46CCB1BD247105500025C804 /* Linked_Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1BC247105500025C804 /* Linked_Queue.cpp */; };
+		46CCB1BF247154AC0025C804 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1BE247154AC0025C804 /* Application.cpp */; };
+		46CCB1C42471551A0025C804 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1C22471551A0025C804 /* Tree.cpp */; };
+		46CCB1C6247156560025C804 /* BiTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB1C5247156560025C804 /* BiTree.cpp */; };
+		46D4E6C12472153C0018F3DE /* Traversal&Thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46D4E6C02472153C0018F3DE /* Traversal&Thread.cpp */; };
+		46D4E6C5247258C30018F3DE /* Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46D4E6C3247258C30018F3DE /* Graph.cpp */; };
+		46D4E6C724734C5F0018F3DE /* Travelsal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46D4E6C624734C5F0018F3DE /* Travelsal.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +46,14 @@
 		46CCB1B82470F91B0025C804 /* Linked_Stack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Linked_Stack.cpp; sourceTree = "<group>"; };
 		46CCB1BA247104A90025C804 /* Order_Queue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Order_Queue.cpp; sourceTree = "<group>"; };
 		46CCB1BC247105500025C804 /* Linked_Queue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Linked_Queue.cpp; sourceTree = "<group>"; };
+		46CCB1BE247154AC0025C804 /* Application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
+		46CCB1C22471551A0025C804 /* Tree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tree.cpp; sourceTree = "<group>"; };
+		46CCB1C32471551A0025C804 /* Tree&BiTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "Tree&BiTree.hpp"; sourceTree = "<group>"; };
+		46CCB1C5247156560025C804 /* BiTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BiTree.cpp; sourceTree = "<group>"; };
+		46D4E6C02472153C0018F3DE /* Traversal&Thread.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Traversal&Thread.cpp"; sourceTree = "<group>"; };
+		46D4E6C3247258C30018F3DE /* Graph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Graph.cpp; sourceTree = "<group>"; };
+		46D4E6C4247258C30018F3DE /* Graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Graph.hpp; sourceTree = "<group>"; };
+		46D4E6C624734C5F0018F3DE /* Travelsal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Travelsal.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +89,9 @@
 				46CCB1AB2470B2C90025C804 /* Basic.hpp */,
 				46CCB1AC2470B2F30025C804 /* 第2章 线性表 */,
 				46CCB1B42470E8A60025C804 /* 第3章 栈和队列 */,
+				46CCB1C0247154CD0025C804 /* 第4章 串、数组、广义表 */,
+				46CCB1C1247154F40025C804 /* 第5章 树和二叉树 */,
+				46D4E6C2247258990018F3DE /* 第6章 图 */,
 				46CCB1A42470B2710025C804 /* main.cpp */,
 			);
 			path = "数据结构代码实现";
@@ -98,8 +115,37 @@
 				46CCB1B82470F91B0025C804 /* Linked_Stack.cpp */,
 				46CCB1BA247104A90025C804 /* Order_Queue.cpp */,
 				46CCB1BC247105500025C804 /* Linked_Queue.cpp */,
+				46CCB1BE247154AC0025C804 /* Application.cpp */,
 			);
 			path = "第3章 栈和队列";
+			sourceTree = "<group>";
+		};
+		46CCB1C0247154CD0025C804 /* 第4章 串、数组、广义表 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "第4章 串、数组、广义表";
+			sourceTree = "<group>";
+		};
+		46CCB1C1247154F40025C804 /* 第5章 树和二叉树 */ = {
+			isa = PBXGroup;
+			children = (
+				46CCB1C32471551A0025C804 /* Tree&BiTree.hpp */,
+				46CCB1C22471551A0025C804 /* Tree.cpp */,
+				46CCB1C5247156560025C804 /* BiTree.cpp */,
+				46D4E6C02472153C0018F3DE /* Traversal&Thread.cpp */,
+			);
+			path = "第5章 树和二叉树";
+			sourceTree = "<group>";
+		};
+		46D4E6C2247258990018F3DE /* 第6章 图 */ = {
+			isa = PBXGroup;
+			children = (
+				46D4E6C4247258C30018F3DE /* Graph.hpp */,
+				46D4E6C3247258C30018F3DE /* Graph.cpp */,
+				46D4E6C624734C5F0018F3DE /* Travelsal.cpp */,
+			);
+			path = "第6章 图";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,12 +205,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46D4E6C724734C5F0018F3DE /* Travelsal.cpp in Sources */,
+				46CCB1C42471551A0025C804 /* Tree.cpp in Sources */,
+				46D4E6C12472153C0018F3DE /* Traversal&Thread.cpp in Sources */,
 				46CCB1BB247104A90025C804 /* Order_Queue.cpp in Sources */,
 				46CCB1B72470E8DA0025C804 /* Order_Stack.cpp in Sources */,
+				46D4E6C5247258C30018F3DE /* Graph.cpp in Sources */,
 				46CCB1BD247105500025C804 /* Linked_Queue.cpp in Sources */,
 				46CCB1B92470F91B0025C804 /* Linked_Stack.cpp in Sources */,
+				46CCB1BF247154AC0025C804 /* Application.cpp in Sources */,
 				46CCB1A52470B2710025C804 /* main.cpp in Sources */,
 				46CCB1AF2470B3460025C804 /* Order_List.cpp in Sources */,
+				46CCB1C6247156560025C804 /* BiTree.cpp in Sources */,
 				46CCB1B12470B8330025C804 /* Linked_List.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

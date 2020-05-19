@@ -9,9 +9,11 @@
 #ifndef Basic_hpp
 #define Basic_hpp
 //头文件引用
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 
+using namespace std;
 
 ///第2章 线性表
 //函数结果状态代码
